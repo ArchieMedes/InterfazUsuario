@@ -1,0 +1,22 @@
+[
+    {
+        "error": 1001,
+        "description": "Invalid date"
+    },
+    {
+        "error": 1002,
+        "description": "Invalid name or/and lastname"
+    },
+    {
+        "error": 1003,
+        "description": "Missing date of birth"
+    },
+    {
+        "error": 1004,
+        "description": "Missing name or/and lastname"
+    },
+    {
+        "error": 1005,
+        "description": "Not numbers submitted"
+    }
+]
