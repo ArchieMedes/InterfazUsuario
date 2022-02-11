@@ -28,13 +28,13 @@ function calculateAge(day, month, year) {
 
     var finalAge;
 
-    if( ( month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month ==12 ) && ( day <= 31 && year < 2021 ) ) {
+    if( ( month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month ==12 ) && ( day <= 31 && year < 2022 ) ) {
         finalAge = calculateYourAge(day, month, year);
     }
-    else if( ( month == 4 || month == 6 || month == 9 || month == 11 ) && ( day <= 30 && year < 2021 ) ) {
+    else if( ( month == 4 || month == 6 || month == 9 || month == 11 ) && ( day <= 30 && year < 2022 ) ) {
         finalAge = calculateYourAge(day, month, year);
     }
-    else if( month == 2 &&  day < 29 && year < 2021 ) {
+    else if( month == 2 &&  day < 29 && year < 2022 ) {
         finalAge = calculateYourAge(day, month, year);
     }
     else {
@@ -46,14 +46,14 @@ function calculateAge(day, month, year) {
 
 router.get('/', (req, res) => {
     // lo que se obtenga de la consulta FETCH se guardará como STRING en la variable RESPONSE
-    res.send("Hola desde la página USERS");
+    res.send("Hola desde la página USERS. Para acceder aquí debes agregar el contexto /api/users a la url localhost:3000 en tu navegador");
 });
 
 router.post('/', (req, res) => {
 
     var age;
     const { name, lastname, day, month, year } = req.body;
-
+    console.log("day:", day);
     if( name && lastname && day && month && year ) {
         if( regExp.test(name) == false || regExp.test(lastname) == false ) {
             console.log(`Error: ${errors[1].error}. ${errors[1].description}.`);

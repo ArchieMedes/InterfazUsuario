@@ -59,15 +59,31 @@ try:
         user = {
             "name": name.get(),
             "lastname": lastname.get(),
-            "day": int(day.get()),
-            "month": int(month.get()),
-            "year": int(year.get()) 
+            "day": day.get(),
+            "month": month.get(),
+            "year": year.get() 
         }
-        print(json.dumps(user))
+
+        if( user["day"] ):
+            user["day"] = int(user["day"])
+        else:
+            user["day"] = "";
+
+        if( user["month"] ):
+            user["month"] = int(user["month"])
+        else:
+            user["month"] = "";
+        
+        if( user["year"] ):
+            user["year"] = int(user["year"])
+        else:
+            user["year"] = "";
+
+        print("el json que enviamos por la solicitud: " + json.dumps(user))
         request = requests.post( url, json = user )
 
         response = request.json() # Anything the POST requests gets, it will be saved in this var "response"
-        print(str(response))
+        print("el que recibimos: " + str(response))
         try:
             response_str = 'Your name is ' + response.get('name') + ' and you are ' + str(response.get('age')) + ' years old'
             return response_str
